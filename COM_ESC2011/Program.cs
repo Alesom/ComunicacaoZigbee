@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO.Ports;
 
 namespace ConsoleApplication1
 {
+    public bool isOpen
+    {
+        get
+        {
+                return SerialComPort.IsOpen;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
