@@ -1,0 +1,4 @@
+D:\Meus Documentos\Documents\Projetos\2014\Projetos Programação\Protocolo de comunicação Zigbee\COM_ESC2011\COM_ESC2011\bin\Debug\COM_ESC2011.exe
+D:\Meus Documentos\Documents\Projetos\2014\Projetos Programação\Protocolo de comunicação Zigbee\COM_ESC2011\COM_ESC2011\bin\Debug\COM_ESC2011.pdb
+D:\Meus Documentos\Documents\Projetos\2014\Projetos Programação\Protocolo de comunicação Zigbee\COM_ESC2011\COM_ESC2011\obj\x86\Debug\COM_ESC2011.exe
+D:\Meus Documentos\Documents\Projetos\2014\Projetos Programação\Protocolo de comunicação Zigbee\COM_ESC2011\COM_ESC2011\obj\x86\Debug\COM_ESC2011.pdb
