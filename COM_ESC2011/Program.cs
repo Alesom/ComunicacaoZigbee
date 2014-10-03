@@ -11,6 +11,7 @@ namespace ConsoleApplication1
         {
             Comunicacao C = new Comunicacao();
             C.ComunicacaoOpen();
+            C.LeDadosConfig();
             while (true)
             {
                 C.TransmiteDado (Console.ReadLine()+"\r\n");

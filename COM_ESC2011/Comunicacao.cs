@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO.Ports;
+using System.IO;
+using System.Threading;
+
 namespace ConsoleApplication1
 {
     class Comunicacao
@@ -22,6 +25,26 @@ namespace ConsoleApplication1
         //    SerialComPort.ReadTimeout = 500;
             SerialCom.DataReceived += new SerialDataReceivedEventHandler(SerialCom_DataReceived);
         }
+
+
+        public void LeDadosConfig()
+        {
+            try
+            {
+                StreamReader rk = new StreamReader(@"D:\Meus Documentos\Documents\Projetos\2014\Projetos Programação\Protocolo de comunicação Zigbee\COM_ESC2011\config.txt");
+                while (!rk.EndOfStream)
+                {
+                    string linha = rk.ReadLine();
+                    Console.WriteLine(linha);
+                    Thread.Sleep(200);
+                    TransmiteDado(linha + "\r");
+                    Thread.Sleep(200);
+                }
+                rk.Close();
+            }
+            catch { Console.WriteLine("Não foi possível Ler/Escrever no arquivo especificado!"); }
+        }
+
 
         void SerialCom_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
