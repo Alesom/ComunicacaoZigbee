@@ -1,4 +1,7 @@
 +++
+ATAPI 1
+ATCN
++++
 ATCH 16
 ATID 001
 ATDA 002
