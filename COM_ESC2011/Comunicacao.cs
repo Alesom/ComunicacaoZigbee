@@ -67,6 +67,10 @@ namespace ConsoleApplication1
             }
         }
 
+        public Boolean IsComu()
+        {
+            return this.SerialCom.IsOpen;
+        }
 
         public void ComunicacaoOpen()
         {

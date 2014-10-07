@@ -12,21 +12,20 @@ namespace ConsoleApplication1
         {
             Comunicacao C = new Comunicacao();
             C.ComunicacaoOpen();
-           // C.LeDadosConfig();
+            if (C.IsComu())
+                C.LeDadosConfig();
             GerenciaDiretorio Cria = new GerenciaDiretorio();
             DateTime Mes = DateTime.Now;
-          /*  Console.WriteLine(Mes.Month);
-            Console.WriteLine(Mes.Year);*/
 
-            string Nome = (Mes.Month + "-" + Mes.Year);
+            //string Nome = (Mes.Month + "-" + Mes.Year);
 
            /* while (true)
             {
                 C.TransmiteDado (Console.ReadLine()+"\r\n");
             }*/
-            C.TransmiteDado("+++\r\n");
+
             Cria.setPath(@"C:\");
-            Cria.setNome(Nome);
+            Cria.setNome(Mes.Month + "-" + Mes.Year);
             if (!Cria.DirJaExist())
                 Cria.Cria();
             Console.ReadLine();
