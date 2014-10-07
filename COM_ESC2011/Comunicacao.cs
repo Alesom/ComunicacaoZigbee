@@ -11,19 +11,18 @@ namespace ConsoleApplication1
     class Comunicacao
     {
         private SerialPort SerialCom = new SerialPort();
-
         private string Buffer = string.Empty;
+        private AgrupaDados Resposta = new AgrupaDados();
 
         public Comunicacao()
         {
-            SerialCom.PortName = "COM7";
-            SerialCom.BaudRate=19200;
+            SerialCom.PortName = "COM8";//Futuramente irá ser trocada para alguma porta passada como parâmetro. 
+            SerialCom.BaudRate=19200; //comunicação padrão entre PC e ubees
             SerialCom.Parity = 0;
             SerialCom.DataBits = 8;
             SerialCom.StopBits = (StopBits) 1;
 
-        //    SerialComPort.ReadTimeout = 500;
-            SerialCom.DataReceived += new SerialDataReceivedEventHandler(SerialCom_DataReceived);
+            SerialCom.DataReceived += new SerialDataReceivedEventHandler(SerialCom_DataReceived); //evendo que é disparado tem dado na porta serial
         }
 
 
@@ -35,7 +34,7 @@ namespace ConsoleApplication1
                 while (!rk.EndOfStream)
                 {
                     string linha = rk.ReadLine();
-                    Console.WriteLine(linha);
+                 //   Console.WriteLine(linha);
                     Thread.Sleep(200);
                     TransmiteDado(linha + "\r");
                     Thread.Sleep(200);
@@ -50,7 +49,22 @@ namespace ConsoleApplication1
         {
             //throw new NotImplementedException();
             Buffer = SerialCom.ReadExisting();
-            Console.WriteLine(Buffer);
+            this.Arruma_Recepcao(Buffer);
+        }
+
+        private void Arruma_Recepcao(string Recepcao)
+        {
+            if (!(Resposta.Central(Recepcao)))
+            {
+                string oi = Resposta.getPrincipal();
+                Console.WriteLine("Full "+Resposta.getPrincipal());
+            }
+            else
+            {
+                //Console.WriteLine("Not Full  "+Recepcao);
+                Thread.Sleep(2000);
+                //Console.ReadLine();
+            }
         }
 
 
