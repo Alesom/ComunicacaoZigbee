@@ -14,20 +14,23 @@ namespace ConsoleApplication1
             C.ComunicacaoOpen();
             if (C.IsComu())
                 C.LeDadosConfig();
-            GerenciaDiretorio Cria = new GerenciaDiretorio();
+            GerenciaDiretorio CriaPastaDoMes = new GerenciaDiretorio();
+            GerenciaDiretorio CriaDiretorioSANICK = new GerenciaDiretorio();
+            CriaDiretorioSANICK.setNome("SANICK");
+            CriaDiretorioSANICK.setPath(@"C:\");
+
+
+            if (!CriaDiretorioSANICK.DirJaExist())
+                CriaDiretorioSANICK.Cria();
+
+
             DateTime Mes = DateTime.Now;
 
-            //string Nome = (Mes.Month + "-" + Mes.Year);
+            CriaPastaDoMes.setPath(@"C:\SANICK");
+            CriaPastaDoMes.setNome(Mes.Month + "-" + Mes.Year);
+            if (!CriaPastaDoMes.DirJaExist())
+                CriaPastaDoMes.Cria();
 
-           /* while (true)
-            {
-                C.TransmiteDado (Console.ReadLine()+"\r\n");
-            }*/
-
-            Cria.setPath(@"C:\");
-            Cria.setNome(Mes.Month + "-" + Mes.Year);
-            if (!Cria.DirJaExist())
-                Cria.Cria();
             Console.ReadLine();
             C.FechaComunicacao();
         }

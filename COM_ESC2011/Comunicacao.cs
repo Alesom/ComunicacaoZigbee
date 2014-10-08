@@ -16,7 +16,7 @@ namespace ConsoleApplication1
 
         public Comunicacao()
         {
-            SerialCom.PortName = "COM8";//Futuramente irá ser trocada para alguma porta passada como parâmetro. 
+            SerialCom.PortName = "COM6";//Futuramente irá ser trocada para alguma porta passada como parâmetro. 
             SerialCom.BaudRate=19200; //comunicação padrão entre PC e ubees
             SerialCom.Parity = 0;
             SerialCom.DataBits = 8;
